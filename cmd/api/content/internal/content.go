@@ -1,6 +1,6 @@
 package content
 
-import "practice-cms/pkg/id"
+import "github.com/theamandadavis/practice-cms/pkg/id"
 
 type ContentSummary struct {
 	ID           id.UUID `db:"id"`

@@ -3,7 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-	"practice-cms/pkg/id"
+	"github.com/theamandadavis/practice-cms/pkg/id"
 
 	"github.com/go-chi/chi/v5"
 )

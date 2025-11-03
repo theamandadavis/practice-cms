@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"practice-cms/internal/content"
+	content "github.com/theamandadavis/practice-cms/cmd/content/internal"
 
 	"github.com/theamandadavis/practice-cms/pkg/id"
 

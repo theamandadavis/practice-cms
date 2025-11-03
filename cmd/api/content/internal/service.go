@@ -3,7 +3,7 @@ package content
 import (
 	"context"
 
-	"practice-cms/pkg/id"
+	"github.com/theamandadavis/practice-cms/pkg/id"
 )
 
 // Repo defines the DB level interaction of content

@@ -1,9 +1,8 @@
 package handlers
 
 import (
-	"practice-cms/internal/content"
-
 	"github.com/go-chi/chi/v5"
+	content "github.com/theamandadavis/practice-cms/cmd/content/internal"
 )
 
 type ContentHandler struct {

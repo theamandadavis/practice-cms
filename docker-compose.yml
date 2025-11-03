@@ -10,12 +10,14 @@ services:
       - MYSQL_DATABASE=cms-practice
     volumes:
       - /Users/amandadavis/PersonalProjects/cms-practice/db:/var/lib/mysql
-    networks:
-      - cms-network
-  cms-api:
+    # networks:
+    #   - cms-network
+  api:
     build: 
-      context: ./cmd
-      # dockerfile: ./cmd/Dockerfile
+      context: ./cmd/api/content
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./.env
     container_name: cms-practice-api
     ports:
       - "8080:8080"
@@ -27,12 +29,12 @@ services:
       - DB_USER=root
       - DB_PASSWORD=
       - DB_NAME=cms-practice
-    volumes:
-      - ./:/app
-    networks:
-      - cms-network
+    # volumes:
+    #   - ./:/app
+    # networks:
+    #   - cms-network
     # command: ["go", "run", "main.go"]
-networks:
-  cms-network:
-    driver: bridge
+# networks:
+#   cms-network:
+#     driver: bridge
 
