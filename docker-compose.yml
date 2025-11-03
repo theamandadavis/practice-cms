@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    container_name: cms-practice-db
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=cms-practice
+    volumes:
+      - /Users/amandadavis/PersonalProjects/cms-practice/db:/var/lib/mysql
+    networks:
+      - cms-network
+  cms-api:
+    build: 
+      context: ./cmd
+      # dockerfile: ./cmd/Dockerfile
+    container_name: cms-practice-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=cms-practice
+    volumes:
+      - ./:/app
+    networks:
+      - cms-network
+    # command: ["go", "run", "main.go"]
+networks:
+  cms-network:
+    driver: bridge
+
